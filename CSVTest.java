@@ -16,28 +16,36 @@ public class CSVTest {
 	 */
 	public static void main(String[] args) {
 
-		// **** creating new CSV file ***
+		// **** writing new CSV file ***
+		
+		// the file to create
 		String fileName = "file.csv";
+		// delimiter user to delimit values. normaly is ","
+		// (String) CSVWriter.COMMA_DELIMITER - comma delimiter ","
 		String delimiter = CSVWriter.COMMA_DELIMITER;
 
+		// try block because writing errors can take place
 		try {
-			// connect to file
+			// * create the file
+			// (String) fileFrom - the file to create
+			// (String) delimiterFrom - delimiter user to delimit values. normaly is ","
 			CSVWriter csvWriter = new CSVWriter(fileName, delimiter);
 
-			// create a line
+			// create a line (row) of items to put on a file
 			ArrayList<String> line = new ArrayList<>(3);
-			// put data on line
+			// put items on line
 			line.add("Name");
 			line.add("Number");
 			line.add("Phone");
 
-			// write line on file
+			// put the line on the file
 			csvWriter.append(line);
 
-			// close file
+			// save and close the file
 			csvWriter.saveAndClose();
 
 		} catch (IOException ex) {
+			// in case writing or file saving errors happen
 			System.err.println("Can't create the file");
 		}
 		//--------
@@ -72,15 +80,26 @@ public class CSVTest {
 		fileName = "NEWfile.csv";
 		delimiter = "\t";
 
-		// connect the file
-		CSVReader csvReader = new CSVReader(fileFrom, delimiterFrom);
-		// for each row
-		for (int i = 0; i < csvReader.size(); i++) {
-			// for each element in the row
-			for (int CSVTest = 0; CSVTest < csvReader.getRow(i).size(); CSVTest++) {
-				// write element on the screen
-				System.out.print(csvReader.getRow(i).get(CSVTest));
+		//* connect the file and read all data
+		// (String) fileName - the file to read
+		// (String) delimiter - delimiter user to delimit values. normaly is ","
+		CSVReader csvReader = new CSVReader(fileName, delimiter);
+
+		//* for each row
+		// (int) csvReader.size() - returns the count of the rows found in the file
+		for (int row = 0; row < csvReader.size(); row++) {
+
+			//* for each element in the row
+			// (int) csvReader.getRow(row).size() - returns the count of the elements
+			//     found in that row
+			for (int element = 0; element < csvReader.getRow(row).size(); element++) {
+
+				//* write element on the screen
+				// (String) csvReader.getRow(row).get(element) - returns the element
+				//     in "element" position on "row" row
+				System.out.print(csvReader.getRow(row).get(element) + " ");
 			}
+			// just go to new line
 			System.out.println();
 		}
 		//--------
