@@ -85,4 +85,4 @@ try {
 }
 ```
 
-You can look at _CSVTest.java_ to get the basic usage of the **SimpleCSVManager** library and test it yourself
+You can look at _[CSVTest.java](CSVTest.java)_ to get the basic usage of the **SimpleCSVManager** library and test it yourself
