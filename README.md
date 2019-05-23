@@ -1,9 +1,9 @@
 # SimpleCSVManager
-A small Java library developed to make reading and writing CSV files easier.
-The library will be useful if you want to read or write CSV files with few commands.
-This library is not prefessional, so use it where the performance is **not** required
+A small Java library to read and write CSV files easier.
+The library is useful if you want to read or write CSV files with few commands.
+This library is not professional, so use it where the performance is **not** required
 
-You can read and write CSV files with different number of items on any row.
+You can read and write CSV files with different number of items in any row.
 You can choose the delimiter (typically it's comma ",")
 
 ## Get Started
